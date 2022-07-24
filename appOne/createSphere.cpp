@@ -1,14 +1,13 @@
 #include<stdio.h>
 #include"VECTOR.h"
 #include"mathUtil.h"
-void createSphere()
+void createSphere(int numAng)
 {
-static const int numAng = 6;//角数。偶数であること。
-static const int numVtx = numAng * (numAng / 2 - 1) + 2;//全頂点数
-static int numTri = (numAng * 2) * (numAng / 2 - 2) + (numAng*2);
-static VECTOR op[numVtx];
-static VECTOR on[numVtx];
-static float radius = 1.0f;
+    const int numVtx = numAng * (numAng / 2 - 1) + 2;//全頂点数
+    int numTri = (numAng * 2) * (numAng / 2 - 2) + (numAng*2);
+    VECTOR* p = new VECTOR[numVtx];
+    VECTOR* n = new VECTOR[numVtx];
+    float radius = 1.0f;
     FILE* fp=0;
     fopen_s(&fp, "assets\\assets.txt", "w");
     fprintf(fp, "x white assets\\white.png\n");
@@ -23,31 +22,31 @@ static float radius = 1.0f;
         //円の座標
         for (int i = 0; i < numAng; i++) {
             k = numAng * j + i;
-            op[k].set(Cos(angle * i) * r*radius, y*radius, Sin(angle * i) * r*radius);
-            on[k].set(Cos(angle * i) * r, y, Sin(angle * i) * r);
+            p[k].set(Cos(angle * i) * r*radius, y*radius, Sin(angle * i) * r*radius);
+            n[k].set(Cos(angle * i) * r, y, Sin(angle * i) * r);
             fprintf(fp, "%f %f %f %f %f %f %d %d\n",
-                op[k].x, op[k].y, op[k].z,
-                on[k].x, on[k].y, on[k].z,
+                p[k].x, p[k].y, p[k].z,
+                n[k].x, n[k].y, n[k].z,
                 0, 0
             );
         }
     }
     //北極になる頂点
     k++;
-    op[k].set(0, radius, 0);
-    on[k].set(0, 1, 0);
+    p[k].set(0, radius, 0);
+    n[k].set(0, 1, 0);
     fprintf(fp, "%f %f %f %f %f %f %d %d\n",
-        op[k].x, op[k].y, op[k].z,
-        on[k].x, on[k].y, on[k].z,
+        p[k].x, p[k].y, p[k].z,
+        n[k].x, n[k].y, n[k].z,
         0, 0
     );
     //南極になる頂点
     k++;
-    op[k].set(0, -radius, 0);
-    on[k].set(0, -1, 0);
+    p[k].set(0, -radius, 0);
+    n[k].set(0, -1, 0);
     fprintf(fp, "%f %f %f %f %f %f %d %d\n",
-        op[k].x, op[k].y, op[k].z,
-        on[k].x, on[k].y, on[k].z,
+        p[k].x, p[k].y, p[k].z,
+        n[k].x, n[k].y, n[k].z,
         0, 0
     );
 
@@ -90,6 +89,6 @@ static float radius = 1.0f;
     }
 
     fclose(fp);
-
-
+    delete[] p;
+    delete[] n;
 }

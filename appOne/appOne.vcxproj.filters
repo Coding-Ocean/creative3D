@@ -19,5 +19,10 @@
   <ItemGroup>
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="createSphere.cpp" />
+    <ClCompile Include="view_proj.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="createSphere.h" />
+    <ClInclude Include="view_proj.h" />
   </ItemGroup>
 </Project>

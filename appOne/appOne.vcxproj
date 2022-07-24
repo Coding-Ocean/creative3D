@@ -154,12 +154,17 @@
   <ItemGroup>
     <ClCompile Include="createSphere.cpp" />
     <ClCompile Include="gmain.cpp" />
+    <ClCompile Include="view_proj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="createSphere.h" />
+    <ClInclude Include="view_proj.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
