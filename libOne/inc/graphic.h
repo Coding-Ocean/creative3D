@@ -18,7 +18,6 @@ void rectMode(RECT_MODE mode);
 enum TEXT_MODE { BOTTOM, TOP, BCENTER, MBCENTER };
 void textMode(TEXT_MODE mode);
 TEXT_MODE getTextMode();
-COLOR hsv2rgb(float h, float s, float v, float a);
 
 void clear(const struct COLOR& c);
 void clear(float r, float g, float b);
@@ -118,3 +117,4 @@ void setRasterizerCullNone();
 void setRasterizerWire();
 
 VECTOR2 getTextureSize(int idx);
+COLOR hsv2rgb(float h, float s, float v, float a);

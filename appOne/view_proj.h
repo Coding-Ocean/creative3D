@@ -3,4 +3,4 @@
 extern MATRIX gView;
 extern MATRIX gProj;
 void createProj();
-void updateView();
+void updateView(class SHADER* shader);
