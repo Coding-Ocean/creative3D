@@ -20,9 +20,11 @@
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="createSphere.cpp" />
     <ClCompile Include="view_proj.cpp" />
+    <ClCompile Include="createCube.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="createSphere.h" />
     <ClInclude Include="view_proj.h" />
+    <ClInclude Include="createCube.h" />
   </ItemGroup>
 </Project>

@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="createCube.cpp" />
     <ClCompile Include="createSphere.cpp" />
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="view_proj.cpp" />
@@ -163,6 +164,7 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="createCube.h" />
     <ClInclude Include="createSphere.h" />
     <ClInclude Include="view_proj.h" />
   </ItemGroup>
