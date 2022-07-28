@@ -1,4 +1,4 @@
-x white assets\green_orange.png
+x white assets\blueTwoTone.png
 b cube cube cube 1
 0 12 white
 v cube pnt 24

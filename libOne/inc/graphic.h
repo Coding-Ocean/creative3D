@@ -117,4 +117,3 @@ void setRasterizerCullNone();
 void setRasterizerWire();
 
 VECTOR2 getTextureSize(int idx);
-COLOR hsv2rgb(float h, float s, float v, float a);

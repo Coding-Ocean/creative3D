@@ -10,7 +10,9 @@ void createCube()
 
     FILE* fp = 0;
     fopen_s(&fp, "assets\\cube.txt", "w");
-    fprintf(fp, "x white assets\\green_orange.png\n");
+    //fprintf(fp, "x white assets\\orangeGreen.png\n");
+    //fprintf(fp, "x white assets\\blackYellow.png\n");
+    fprintf(fp, "x white assets\\blueTwoTone.png\n");
     fprintf(fp, "b cube cube cube 1\n");
     fprintf(fp, "0 %d white\n", numTri);
 
