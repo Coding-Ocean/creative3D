@@ -14,7 +14,11 @@ void gmain()
 
     createCube();
     CONTAINER* container = new CONTAINER("assets\\cube.txt");
-    BATCH* cube = container->batch("cube");
+    BATCH* cube[4];
+    cube[0] = container->batch("cube");
+    cube[1] = container->batch("cube2");
+    cube[2] = container->batch("cube1");
+    cube[3] = container->batch("cube3");
 
     VECTOR lightPos(0.4f,0.5f,0.6f);
     float ambient = 0.0f;
@@ -35,6 +39,7 @@ void gmain()
     float w = 1.0f;//棒の太さ
     int paternSw = 0;//計算パターン変更
     int rasterSw = 1;
+    int batchSw = 0;
     while (notQuit)
     {
         clear(0,0,0);
@@ -55,6 +60,7 @@ void gmain()
         //if (isPress(KEY_D))ofst -= 1;
 
         if (isTrigger(KEY_Z))++paternSw %= 5;
+        if (isTrigger(KEY_V))++batchSw %= 4;
 
 
         setRasterizerCullBack();
@@ -83,7 +89,7 @@ void gmain()
                 world.identity();
                 world.mulTranslate(x * s, 0, z * s);
                 world.mulScaling(s * w, s * h, s * w);
-                cube->draw(shader, world);
+                cube[batchSw]->draw(shader, world);
             }
         }
         angle += 2;

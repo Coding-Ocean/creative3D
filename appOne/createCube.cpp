@@ -10,65 +10,62 @@ void createCube()
 
     FILE* fp = 0;
     fopen_s(&fp, "assets\\cube.txt", "w");
-    //fprintf(fp, "x white assets\\orangeGreen.png\n");
-    //fprintf(fp, "x white assets\\blackYellow.png\n");
-    fprintf(fp, "x white assets\\blueTwoTone.png\n");
-    fprintf(fp, "b cube cube cube 1\n");
-    fprintf(fp, "0 %d white\n", numTri);
 
+    fprintf(fp, "x orangeGreen assets\\orangeGreen.png\n");
+    fprintf(fp, "x blackYellow assets\\blackYellow.png\n");
+    fprintf(fp, "x cyanYellow assets\\cyanYellow.png\n");
+    fprintf(fp, "x blueTwoTone assets\\blueTwoTone.png\n");
+    
+    //Batch
+    fprintf(fp, "b cube cube cube 1\n");
+    fprintf(fp, "0 %d blueTwoTone\n", numTri);
+    fprintf(fp, "b cube1 cube cube 1\n");
+    fprintf(fp, "0 %d cyanYellow\n", numTri);
+    fprintf(fp, "b cube2 cube cube 1\n");
+    fprintf(fp, "0 %d orangeGreen\n", numTri);
+    fprintf(fp, "b cube3 cube cube 1\n");
+    fprintf(fp, "0 %d blackYellow\n", numTri);
+
+    //Vertices
     fprintf(fp, "v cube pnt %d\n", numVtx);
-    //ê≥ñ 
+    //front
     fprintf(fp, "%3.1f %3.1f %3.1f  0 0 1  0 0 \n", -l,  l, l);
     fprintf(fp, "%3.1f %3.1f %3.1f  0 0 1  0 0 \n", -l, -l, l);
     fprintf(fp, "%3.1f %3.1f %3.1f  0 0 1  0 0 \n",  l,  l, l);
     fprintf(fp, "%3.1f %3.1f %3.1f  0 0 1  0 0 \n",  l, -l, l);
-    ////âEñ 
-    fprintf(fp, "%3.2f %3.2f %3.2f  1 0 0   0 0\n", l, l, l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  1 0 0   0 0\n", l, -l, l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  1 0 0   0 0\n", l, l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  1 0 0   0 0\n", l, -l, -l);
-    //ó†ñ 
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 0 -1  0 0\n", l, l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 0 -1  0 0\n", l, -l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 0 -1  0 0\n", -l, -l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 0 -1  0 0\n", -l, l, -l);
-    //ç∂ñ 
-    fprintf(fp, "%3.2f %3.2f %3.2f  -1 0 0   0 0\n", -l, l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  -1 0 0   0 0\n", -l, -l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  -1 0 0   0 0\n", -l, l, l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  -1 0 0   0 0\n", -l, -l, l);
-    //è„ñ 
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 1 0  1 0 \n", -l, l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 1 0  1 0 \n", -l, l, l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 1 0  1 0 \n", l, l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 1 0  1 0 \n", l, l, l);
-    //â∫ñ 
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 -1 0  1 0 \n", -l, -l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 -1 0  1 0 \n", l, -l, -l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 -1 0  1 0 \n", -l, -l, l);
-    fprintf(fp, "%3.2f %3.2f %3.2f  0 -1 0  1 0 \n", l, -l, l);
+    //right
+    fprintf(fp, "%3.1f %3.1f %3.1f  1 0 0   0 1\n", l, l, l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  1 0 0   0 1\n", l, -l, l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  1 0 0   0 1\n", l, l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  1 0 0   0 1\n", l, -l, -l);
+    //back
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 0 -1  0 0\n", l, l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 0 -1  0 0\n", l, -l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 0 -1  0 0\n", -l, l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 0 -1  0 0\n", -l, -l, -l);
+    //left
+    fprintf(fp, "%3.1f %3.1f %3.1f  -1 0 0   0 0\n", -l, l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  -1 0 0   0 0\n", -l, -l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  -1 0 0   0 0\n", -l, l, l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  -1 0 0   0 0\n", -l, -l, l);
+    //top
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 1 0  1 0 \n", -l, l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 1 0  1 0 \n", -l, l, l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 1 0  1 0 \n", l, l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 1 0  1 0 \n", l, l, l);
+    //botom
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 -1 0  1 0 \n", -l, -l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 -1 0  1 0 \n", l, -l, -l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 -1 0  1 0 \n", -l, -l, l);
+    fprintf(fp, "%3.1f %3.1f %3.1f  0 -1 0  1 0 \n", l, -l, l);
 
-
-
+    //Indices
     fprintf(fp, "i cube %d\n", numTri * 3);
-
-    fprintf(fp, "0 1 2\n");
-    fprintf(fp, "2 1 3\n");
-
-    fprintf(fp, "4 5 6\n");
-    fprintf(fp, "6 5 7\n");
-
-    fprintf(fp, "8  9 10\n");
-    fprintf(fp, "8 10 11\n");
-
-    fprintf(fp, "12 13 14\n");
-    fprintf(fp, "14 13 15\n");
-
-    fprintf(fp, "16 17 18\n");
-    fprintf(fp, "18 17 19\n");
-
-    fprintf(fp, "20 21 22\n");
-    fprintf(fp, "22 21 23\n");
+    for (int i = 0; i < 6; i++) {
+        int j = 4 * i;
+        fprintf(fp, "%d %d %d\n", j + 0, j + 1, j + 2);
+        fprintf(fp, "%d %d %d\n", j + 2, j + 1, j + 3);
+    }
 
     fclose(fp);
 }
