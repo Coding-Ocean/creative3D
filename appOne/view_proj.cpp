@@ -16,7 +16,7 @@ void createProj()
 }
 void updateView(SHADER* shader)
 {
-    if (isTrigger(KEY_C)) {
+    if (isTrigger(KEY_M)) {
         ++sw %= 4;
         switch (sw) {
         case 0:angY = 45; break;
